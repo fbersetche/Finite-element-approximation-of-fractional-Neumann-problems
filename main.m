@@ -87,23 +87,24 @@ for l=1:nt-nt_aux % Main Loop
         K(order,order) = K(order,order) + 2.*edge_quad(nodl,nodm,nod_diff,p,s,epsi1,epsi2,epsi3,epsi4,epsi5,area(l),area(m),p_cube); 
     end
 end 
-
+% Assembling the right hand side
 for l=nt-nt_aux+1:nt
     nodl = t(l,:);
     xl = p(1 , nodl); yl = p(2 , nodl);
     b(nodl) = b(nodl) + fquad(area(l),xl,yl,g);
 end
 b(nn+1) = -(2*pi)/R;
-
+% Assembling the mass matrix
 M = zeros(nn+1,nn+1);
 for l=1:nt-nt_aux
     nodl = t(l,:);
     M(nodl,nodl) = M(nodl,nodl) + (area(l)/12).*( ones(3) + eye(3) );
 end
+% Solving the linear system
 alpha = 1;
 K = K.*cns;
 uh = (K + alpha.*M)\b;
-
+% Graphic representation
 theta = 0:(2*pi)/100:2*pi;
 xx = R.*cos(theta);
 yy = R.*sin(theta);

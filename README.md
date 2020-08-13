@@ -1,6 +1,6 @@
 
 This is the code exposed in the article "FINITE ELEMENT APPROXIMATION OF FRACTIONAL NEUMANN
-PROBLEMS" available online here: https://arxiv.org/abs/XXXXXXXXXX. 
+PROBLEMS" available online here: https://arxiv.org/abs/XXXX.XXXXX. 
 
 This code is a simple modification of the one given in "A short implementation for a 2D Dirichlet problem of a fractional laplacian" available online here: https://arxiv.org/abs/1610.05558. 
  
